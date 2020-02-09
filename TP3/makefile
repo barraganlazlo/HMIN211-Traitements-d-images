@@ -8,6 +8,8 @@ extrema_histo:
 	g++ -Wall -I ../librairie -o bin/extrema_histo src/extrema_histo.cpp
 egalisation:
 	g++ -Wall -I ../librairie -o bin/egalisation src/egalisation.cpp
+specification:
+	g++ -Wall -I ../librairie -o bin/specification src/specification.cpp
 clean :
 	rm -rf obj/*.o
 mrproper :
