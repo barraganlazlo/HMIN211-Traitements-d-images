@@ -1,11 +1,11 @@
-all : expansion_dynamique expansion_d3 extrema
+all : expansion_dynamique expansion_d3 extrema_histo
 
 expansion_dynamique:
 	g++ -Wall -I ../librairie -o bin/expansion_dynamique src/expansion_dynamique.cpp
 expansion_d3:
 	g++ -Wall -I ../librairie -o bin/expansion_d3 src/expansion_d3.cpp
-extrema:
-	g++ -Wall -I ../librairie -o bin/extrema src/extrema.cpp
+extrema_histo:
+	g++ -Wall -I ../librairie -o bin/extrema_histo src/extrema_histo.cpp
 clean :
 	rm -rf obj/*.o
 mrproper :

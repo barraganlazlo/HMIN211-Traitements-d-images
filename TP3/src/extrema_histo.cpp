@@ -17,17 +17,15 @@ int linearTransform(int n, int alpha, int beta);
 
 int main(int argc, char **argv){
     char cNomImgLue[250], cNomImgEcrite[250];
-    int nH, nW, nTaille, Smin, Smax;
+    int nH, nW, nTaille;
 
-    if (argc < 5)
+    if (argc < 3)
     {
-      printf("Usage: ImageIn.ppm ImageOut.ppm Smin Smax\n");
+      printf("Usage: ImageIn.ppm ImageOut.ppm \n");
       exit (1) ;
     }
     sscanf (argv[1],"%s",cNomImgLue);
     sscanf (argv[2],"%s",cNomImgEcrite);
-    sscanf (argv[3],"%i",&Smin);
-    sscanf (argv[4],"%i",&Smax);
 
     OCTET *ImgIn, *ImgOut;
 
