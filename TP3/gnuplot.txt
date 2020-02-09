@@ -3,3 +3,7 @@ plot "../TP3/results/black_ppm.dat" using 2 with lines lc rgb "red" title "occur
 "../TP3/results/black_ppm.dat" using 4 with lines lc rgb "blue" title "occurrence Bleu"
 
 plot "../TP3/results/black_pgm.dat" with lines title "occurrence niveaux de gris"
+
+plot "../TP3/results/black_exp_ppm.dat" using 2 with lines lc rgb "red" title "occurrence Rouge",\
+"../TP3/results/black_exp_ppm.dat" using 3 with lines lc rgb "green" title "occurrence Vert",\
+"../TP3/results/black_exp_ppm.dat" using 4 with lines lc rgb "blue" title "occurrence Bleu"

@@ -1,25 +1,30 @@
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 #include "image_ppm.h"
 
 using namespace std;
 
 int* diagram(OCTET *ImgIn,int nH,int nW);
-int linearTransform(int n, int alpha, int beta);
 
 int main(int argc, char* argv[])
 {
   char cNomImgLue[250], cNomImgEcrite[250];
   int nH, nW, nTaille;
 
-  if (argc < 2)
+  if (argc < 5)
   {
-    printf("Usage: ImageIn.pgm ImageOut.pgm\n");
+    printf("Usage: ImageIn.pgm ImageOut.pgm ddp fa ... \n");
     exit (1) ;
   }
 
+  char BufferOutDdp[250];
+  char BufferOutFa[250];
+
   sscanf (argv[1],"%s",cNomImgLue);
   sscanf (argv[2],"%s",cNomImgEcrite);
+  sscanf (argv[3],"%s",BufferOutDdp);
+  sscanf (argv[4],"%s",BufferOutFa);
 
   OCTET *ImgIn, *ImgOut;
 
@@ -31,24 +36,27 @@ int main(int argc, char* argv[])
   allocation_tableau(ImgOut, OCTET, nTaille);
 
   //Get the datagram of the image
+  int L = 256; //Layers
   int* diag = diagram(ImgIn, nH, nW);
+  float* ddp = (float*) malloc(L * sizeof(float));
+  float* fa = (float*) malloc(L * sizeof(float));
 
-  //Get Alpha and Beta
-  signed int alpha = -1; //Init
-  signed int beta = -1; //Init
-  for(int i = 0; i < 256; i++){
-    if(diag[i] > 0 && alpha == -1) alpha = i;
-    if(diag[i] > 0) beta = i;
+  ofstream fileOutDdp(BufferOutDdp);
+  ofstream fileOutFa(BufferOutFa);
+
+  for(int i = 0; i < L; i++){
+    ddp[i] = (float)diag[i] / (float)nTaille;
+      fileOutDdp<<i <<" "<< ddp[i] <<endl;
+    fa[i] = i == 0 ? ddp[i] : ddp[i] + fa[i - 1];
+      fileOutFa<<i <<" "<< fa[i] <<endl;
   }
-
-  cout << alpha << " / " << beta << endl;
 
   //Apply Dynamic expension
   int position;
   for (int i=0; i < nH; i++) {
     for (int j=0; j < nW; j++) {
       position = i*nW + j;
-      ImgOut[position] = linearTransform(ImgIn[position], alpha, beta);
+      ImgOut[position] = (L - 1) * fa[ImgIn[position]];
     }
   }
 
@@ -69,9 +77,4 @@ int* diagram(OCTET *ImgIn,int nH,int nW){
       }
   }
   return occ;
-}
-
-
-int linearTransform(int n, int alpha, int beta){
-  return 255 * ((float)(n - alpha) / (float)(beta - alpha));
 }
