@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
         for (int j=0; j < nW; j++) {
             position = i*nW + j;
             ImgOut[position] = Ta(L, position, histoCumule, ImgTest);
-            ImgOut[position] = InverseTa(L, position, f, ImgOut);
+            ImgOut[position] = f[ImgOut[position]]; //InverseTa(L, position, f, ImgOut);
         }
     }
 
