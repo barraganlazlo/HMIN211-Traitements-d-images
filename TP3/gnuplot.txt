@@ -19,3 +19,8 @@ plot "../TP3/results/baboon_ppm_extrema.dat" using 2 with lines lc rgb "red" tit
 plot "../TP3/results/baboon_ppm_extrema_exp.dat" using 2 with lines lc rgb "red" title "occurrence Rouge",\
 "../TP3/results/baboon_ppm_extrema_exp.dat" using 3 with lines lc rgb "green" title "occurrence Vert",\
 "../TP3/results/baboon_ppm_extrema_exp.dat" using 4 with lines lc rgb "blue" title "occurrence Bleu"
+
+plot "../TP3/results/baboon_pgm.dat" with lines title "occurrence niveaux de gris"
+plot "../TP3/results/baboon_pgm_egal.dat" with lines title "occurrence niveaux de gris"
+plot "../TP3/results/baboon_fa.dat" with lines title "F(a)"
+plot "../TP3/results/baboon_ddp.dat" with lines title "densité de probabilité"
