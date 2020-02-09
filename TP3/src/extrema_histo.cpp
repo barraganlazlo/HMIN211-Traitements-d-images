@@ -16,7 +16,7 @@ struct RGB histogram(OCTET *ImgIn, int nH, int nW);
 int linearTransform(int n, int alpha, int beta);
 
 int main(int argc, char **argv){
-    char cNomImgLue[250], cNomImgEcrite[250];
+    char cNomImgLue[250], cNomImgEcrite[250],cNomImgEcrite2[250];
     int nH, nW, nTaille;
 
     if (argc < 3)
@@ -26,6 +26,7 @@ int main(int argc, char **argv){
     }
     sscanf (argv[1],"%s",cNomImgLue);
     sscanf (argv[2],"%s",cNomImgEcrite);
+    sscanf (argv[3],"%s",cNomImgEcrite2);
 
     OCTET *ImgIn, *ImgOut;
 
@@ -78,6 +79,7 @@ int main(int argc, char **argv){
     cout << "g : " << alpha_g << " / " << beta_g << endl;
     cout << "b : " << alpha_b << " / " << beta_b << endl;
     extrema(ImgIn, nH, nW, alpha_r, beta_r, alpha_g, beta_g, alpha_b, beta_b); //SetExtrema
+    ecrire_image_ppm(cNomImgEcrite, ImgIn,  nH, nW);
 
     //Apply Dynamic expension
     int position;
@@ -90,7 +92,7 @@ int main(int argc, char **argv){
       }
     }
 
-    ecrire_image_ppm(cNomImgEcrite, ImgOut,  nH, nW);
+    ecrire_image_ppm(cNomImgEcrite2, ImgOut,  nH, nW);
     free(ImgIn);
 
     return 0;
