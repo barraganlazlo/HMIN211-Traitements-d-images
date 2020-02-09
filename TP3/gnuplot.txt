@@ -26,4 +26,6 @@ plot "../TP3/results/baboon_fa.dat" with lines title "F(a)"
 plot "../TP3/results/baboon_ddp.dat" with lines title "densité de probabilité"
 
 
-plot "../TP3/results/lena_pgm.dat" with lines title "densité de probabilité"
+plot "../TP3/results/girl_pgm.dat" with lines title "occurrence niveaux de gris"
+plot "../TP3/results/ega_specification_pgm.dat" with lines title "occurrence niveaux de gris"
+plot "../TP3/results/specification_pgm.dat" with lines title "occurrence niveaux de gris"
