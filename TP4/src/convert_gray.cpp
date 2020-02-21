@@ -18,7 +18,7 @@ int main(int argc, char **argv){
     char cNomImgLue[250], cNomImgEcrite[250];
     int nH, nW, nTaille;
 
-    if (argc < 2)
+    if (argc < 3)
     {
       printf("Usage: ImageIn.ppm ImageOut.pgm\n");
       exit (1) ;
@@ -41,7 +41,7 @@ int main(int argc, char **argv){
       for (int j=0; j < nW; j++) {
         position = i*nW*3+j*3;
         realPosition = i * nW + j;
-        ImgOut[realPosition] = ImgIn[position] * 0.299 + ImgIn[position + 1] * 0.587 + ImgIn[position + 2] * 0.114
+        ImgOut[realPosition] = ImgIn[position] * 0.299 + ImgIn[position + 1] * 0.587 + ImgIn[position + 2] * 0.114;
       }
     }
 
