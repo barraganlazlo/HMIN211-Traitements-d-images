@@ -1,7 +1,11 @@
-all : convert_gray blur blur_pointed ROC
+all : convert_gray flou flou_fond blur blur_pointed ROC
 
 convert_gray :
 	g++ -Wall -I ../librairie -o bin/convert_gray src/convert_gray.cpp
+flou :
+	g++ -Wall -I ../librairie -o bin/flou src/flou.cpp
+flou_fond :
+	g++ -Wall -I ../librairie -o bin/flou_fond src/flou_fond.cpp
 blur :
 	g++ -Wall -I ../librairie -o bin/blur src/blur.cpp
 blur_pointed :

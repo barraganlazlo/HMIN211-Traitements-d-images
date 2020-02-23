@@ -1,3 +1,6 @@
 plot "results/baboon_ppm_histo.dat" using 2 with lines,\ 
 "results/baboon_ppm_histo.dat" using 3 with lines,\
 "results/baboon_ppm_histo.dat" using 4 with lines 
+
+
+plot "results/bison_pgm.dat" with lines
