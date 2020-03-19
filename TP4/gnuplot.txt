@@ -1,6 +1,12 @@
-plot "results/baboon_ppm_histo.dat" using 2 with lines,\ 
-"results/baboon_ppm_histo.dat" using 3 with lines,\
-"results/baboon_ppm_histo.dat" using 4 with lines 
-
 
 plot "results/bison_pgm.dat" with lines
+
+reset
+set xtics 0.1
+set ytics 0.1
+set mxtics 1
+set title "ROC"
+set xlabel "sensibilite"
+set ylabel "specificite"
+set mytics 1
+plot [0:1] [0:1] "./results/bison_ROC.dat" using 1:2 title "bison"
